@@ -42,7 +42,6 @@ public class Chronometer {
    }
 
 
-
     public static void playSound(String file) {
         try {
             File soundFile = new File(file); //Звуковой файл

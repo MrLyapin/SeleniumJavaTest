@@ -1,4 +1,4 @@
-package ru.tester.newbe;
+package ru.tester.newbe.model;
 
 public class GroupData {
    private final String name;

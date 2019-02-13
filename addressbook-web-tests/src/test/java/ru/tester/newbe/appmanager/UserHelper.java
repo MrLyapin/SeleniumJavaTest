@@ -28,4 +28,26 @@ public class UserHelper extends HelperBase {
    public void returnToHomepPage() {
       click(By.linkText("home page"));
    }
+
+   public void selectUser() {
+      click(By.name("selected[]"));
+   }
+
+   public void deleteSelectedUser() {
+      click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]"));
+   }
+
+   public void selectAndEditUserForm() {
+      click(By.xpath("(.//*[@id='maintable']/tbody/tr[1]/td[8]/a/img))"));
+   }
+
+   public void submitUserEdit() {
+      click(By.name("Update"));
+   }
 }
+
+
+
+//   public void selectAndEditUserForm() {
+//      click(By.xpath("(.//*[@id='maintable']/tbody/tr[]/td[8]/a/img))"));
+//   }

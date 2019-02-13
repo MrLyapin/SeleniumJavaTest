@@ -11,6 +11,8 @@ public class ApplicationManager {
 
    WebDriver driver;
 
+   private SessionHelper sessionHelper;
+   private NavigationHelper navigationHelper;
    private GroupHelper groupHelper;
    private String baseUrl;
    private boolean acceptNextAlert = true;
@@ -19,25 +21,15 @@ public class ApplicationManager {
    public void init() {
       driver = new ChromeDriver();
       baseUrl = "https://www.google.com/";
-      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+      driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
       driver.get("http://localhost/addressbook/");
-      groupHelper = new GroupHelper(driver);        //created driver
-      login("admin", "secret");
+      groupHelper = new GroupHelper(driver);                //created driver
+      navigationHelper = new NavigationHelper(driver);      //created driver
+      sessionHelper = new SessionHelper(driver);
+      sessionHelper.login("admin", "secret");
    }
 
-   private void login(String username, String password) {
-     driver.findElement(By.name("user")).click();
-     driver.findElement(By.name("user")).clear();
-     driver.findElement(By.name("user")).sendKeys(username);
-     driver.findElement(By.name("pass")).click();
-     driver.findElement(By.name("pass")).clear();
-     driver.findElement(By.name("pass")).sendKeys(password);
-     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
-   }
 
-   public void gotoGroupPage() {
-     driver.findElement(By.linkText("groups")).click();
-   }
 
    public void stop() {
       driver.quit();
@@ -82,5 +74,9 @@ public class ApplicationManager {
 
    public GroupHelper getGroupHelper() {
       return groupHelper;
+   }
+
+   public NavigationHelper getNavigationHelper() {
+      return navigationHelper;
    }
 }

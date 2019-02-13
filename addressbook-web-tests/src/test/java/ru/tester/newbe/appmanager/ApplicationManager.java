@@ -13,9 +13,11 @@ public class ApplicationManager {
 
    private SessionHelper sessionHelper;
    private NavigationHelper navigationHelper;
+   private UserHelper userHelper;
    private GroupHelper groupHelper;
    private String baseUrl;
    private StringBuffer verificationErrors = new StringBuffer();
+
 
    public void init() {
       driver = new ChromeDriver();
@@ -24,6 +26,7 @@ public class ApplicationManager {
       driver.get("http://localhost/addressbook/");
       groupHelper = new GroupHelper(driver);                //created driver
       navigationHelper = new NavigationHelper(driver);      //created driver
+      userHelper = new UserHelper(driver);                  //created driver
       sessionHelper = new SessionHelper(driver);
       sessionHelper.login("admin", "secret");
    }
@@ -46,5 +49,9 @@ public class ApplicationManager {
 
    public NavigationHelper getNavigationHelper() {
       return navigationHelper;
+   }
+
+   public UserHelper getUserHelper() {
+      return userHelper;
    }
 }

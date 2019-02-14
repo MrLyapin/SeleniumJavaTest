@@ -14,11 +14,11 @@ public class UserHelper extends HelperBase {
    }
 
    public void fillUserForm(UserData userData) {
-      type(By.name("firstname"), "name");
-      type(By.name("lastname"), "lastname");
-      type(By.name("nickname"), "nickname");
-      type(By.name("email"), "name@domen.com");
-      type(By.name("home"), "2222222222");
+      type(By.name("firstname"), userData.getFirstname());
+      type(By.name("lastname"), userData.getLastname());
+      type(By.name("nickname"), userData.getNickname());
+      type(By.name("email"), userData.getEmail());
+      type(By.name("home"), userData.getHome());
    }
 
    public void submitUserCreation() {

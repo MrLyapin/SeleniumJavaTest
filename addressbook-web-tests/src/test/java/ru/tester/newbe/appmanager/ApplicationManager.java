@@ -22,7 +22,7 @@ public class ApplicationManager {
    public void init() {
       driver = new ChromeDriver();
       baseUrl = "https://www.google.com/";
-      driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+      driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
       driver.get("http://localhost/addressbook/");
       groupHelper = new GroupHelper(driver);                //created driver
       navigationHelper = new NavigationHelper(driver);      //created driver

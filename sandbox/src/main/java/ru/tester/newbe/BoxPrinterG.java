@@ -25,7 +25,7 @@ class Test2 {
       System.out.println(value2);
 
       // Здесь повторяется ошибка предыдущего фрагмента кода
-      Integer intValue2 = value2.getValue();
-      //String stringValue = value2.getValue();
+      //Integer intValue2 = value2.getValue();
+      String stringValue = value2.getValue();
    }
 }
